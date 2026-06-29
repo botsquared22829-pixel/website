@@ -1,56 +1,35 @@
-const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-const revealItems = Array.from(document.querySelectorAll(".reveal"));
+// Active nav link based on current page
+const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-const sectionLinks = navLinks
-  .map((link) => ({
-    link,
-    section: document.getElementById(link.getAttribute("href").slice(1)),
-  }))
-  .filter((item) => item.section);
+navLinks.forEach((link) => {
+  const linkPage = link.getAttribute('href');
+  const isActive = linkPage === currentPage;
+  link.classList.toggle('is-active', isActive);
+  if (isActive) {
+    link.setAttribute('aria-current', 'page');
+  } else {
+    link.removeAttribute('aria-current');
+  }
+});
 
-function setActiveNavLink() {
-  const currentPosition = window.scrollY + 140;
-  let activeItem = sectionLinks[0];
+// Reveal animation on scroll
+const revealItems = Array.from(document.querySelectorAll('.reveal'));
 
-  sectionLinks.forEach((item) => {
-    if (item.section.offsetTop <= currentPosition) {
-      activeItem = item;
-    }
-  });
-
-  sectionLinks.forEach((item) => {
-    const isActive = item === activeItem;
-    item.link.classList.toggle("is-active", isActive);
-
-    if (isActive) {
-      item.link.setAttribute("aria-current", "page");
-    } else {
-      item.link.removeAttribute("aria-current");
-    }
-  });
-}
-
-setActiveNavLink();
-window.addEventListener("scroll", setActiveNavLink, { passive: true });
-window.addEventListener("resize", setActiveNavLink);
-
-if ("IntersectionObserver" in window) {
+if ('IntersectionObserver' in window) {
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        entry.target.classList.add("is-visible");
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
         window.setTimeout(() => {
-          entry.target.style.transitionDelay = "";
+          entry.target.style.transitionDelay = '';
         }, 650);
         observer.unobserve(entry.target);
       });
     },
     {
-      rootMargin: "0px 0px -12% 0px",
+      rootMargin: '0px 0px -12% 0px',
       threshold: 0.12,
     }
   );
@@ -60,5 +39,5 @@ if ("IntersectionObserver" in window) {
     revealObserver.observe(item);
   });
 } else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
+  revealItems.forEach((item) => item.classList.add('is-visible'));
 }
