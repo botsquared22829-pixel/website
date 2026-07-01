@@ -690,7 +690,7 @@ h2 {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
   margin-top: 18px;
 }
@@ -718,6 +718,13 @@ h2 {
   object-fit: cover;
   object-position: center 28%;
   filter: saturate(0.98) contrast(1.04);
+}
+
+.member-photo.placeholder-photo {
+  object-fit: contain;
+  object-position: center;
+  padding: 20%;
+  background: #0a0b0e;
 }
 
 .member-card strong {
