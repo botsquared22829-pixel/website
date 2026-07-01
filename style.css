@@ -695,6 +695,31 @@ h2 {
   margin-top: 18px;
 }
 
+.team-department {
+  margin-top: 36px;
+}
+
+.team-department:first-of-type {
+  margin-top: 18px;
+}
+
+.department-label {
+  margin: 0 0 16px;
+  padding-left: 14px;
+  border-left: 3px solid var(--red);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.team-grid-sm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
 .member-card {
   min-height: 100%;
   display: grid;
@@ -1662,6 +1687,7 @@ h2 {
   }
 
   .team-grid,
+  .team-grid-sm,
   .stat-strip {
     grid-template-columns: 1fr;
   }
