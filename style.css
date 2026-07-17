@@ -1612,6 +1612,22 @@ h2 {
     padding-top: 64px;
   }
 
+  .hero-fullbleed {
+    min-height: 80vh;
+  }
+
+  .hero-fullbleed-bg {
+    background-position: center top;
+  }
+
+  .hero-fullbleed-content {
+    padding: 140px 0 60px;
+  }
+
+  .hero-fullbleed-content h1 {
+    font-size: clamp(2.2rem, 9vw, 4rem);
+  }
+
   .robot-visual {
     min-height: 470px;
   }
@@ -1700,16 +1716,20 @@ h2 {
   }
 
   .nav-links {
-    gap: 0;
+    gap: 2px;
   }
 
   .nav-links a {
-    padding: 8px 9px;
+    padding: 8px 10px;
     font-size: 0.84rem;
   }
 
   h1 {
     font-size: clamp(2.3rem, 13vw, 3.7rem);
+  }
+
+  .hero-fullbleed-content h1 {
+    font-size: clamp(2rem, 11vw, 2.5rem);
   }
 
   .hero-copy {
