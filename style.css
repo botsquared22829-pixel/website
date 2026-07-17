@@ -717,6 +717,15 @@ h2 {
   padding: 16px;
 }
 
+.ftc-collab-frame img {
+  object-position: center 41%;
+  transform: scale(1.6);
+}
+
+.ftc-collab-frame:hover img {
+  transform: scale(1.65);
+}
+
 .robot-photo {
   display: grid;
 }
