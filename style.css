@@ -16,6 +16,7 @@
   --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
   --red-shadow: 0 28px 80px rgba(229, 9, 20, 0.18);
   --radius: 8px;
+  --content-w: min(82vw, 1600px);
 }
 
 * {
@@ -24,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: clamp(14px, 1.11vw, 20px);
 }
 
 body {
@@ -116,7 +118,7 @@ p {
 .hero-fullbleed-content {
   position: relative;
   z-index: 2;
-  width: min(800px, calc(100% - 48px));
+  width: min(55vw, calc(100% - 48px));
   padding: 0 0 80px;
   margin-top: auto;
   display: flex;
@@ -160,7 +162,7 @@ p {
 }
 
 .nav {
-  width: min(1180px, calc(100% - 32px));
+  width: var(--content-w);
   min-height: 76px;
   margin: 0 auto;
   display: flex;
@@ -273,7 +275,7 @@ p {
 }
 
 .section {
-  width: min(1180px, calc(100% - 32px));
+  width: var(--content-w);
   margin: 0 auto;
   padding: 96px 0;
   scroll-margin-top: 92px;
@@ -1055,7 +1057,7 @@ h2 {
 }
 
 .sponsor-hero-inner {
-  width: min(1180px, calc(100% - 32px));
+  width: var(--content-w);
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -1147,7 +1149,7 @@ h2 {
 }
 
 .footer-grid {
-  width: min(1180px, calc(100% - 32px));
+  width: var(--content-w);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -1234,7 +1236,7 @@ h2 {
 }
 
 .footer-bottom {
-  width: min(1180px, calc(100% - 32px));
+  width: var(--content-w);
   margin: 36px auto 0;
   padding: 20px 0;
   border-top: 1px solid var(--line);
@@ -1733,7 +1735,7 @@ h2 {
 
 @media (max-width: 620px) {
   .section {
-    width: min(100% - 24px, 1180px);
+    width: calc(100% - 24px);
     padding: 70px 0;
   }
 
