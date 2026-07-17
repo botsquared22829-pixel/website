@@ -77,6 +77,94 @@ p {
   backdrop-filter: blur(18px);
 }
 
+.site-header--transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  border-bottom: none;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.nav--home {
+  justify-content: flex-start;
+}
+
+.nav--home .nav-links {
+  margin-left: 0;
+}
+
+/* ---- Full-Bleed Hero ---- */
+
+.hero-fullbleed {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-fullbleed-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+}
+
+.hero-fullbleed-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.55) 50%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%);
+}
+
+.hero-fullbleed-content {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  max-width: 620px;
+  margin-left: max(16px, calc((100% - 1180px) / 2 + 16px));
+  padding: 140px 0 80px;
+}
+
+.hero-fullbleed-content .eyebrow {
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-fullbleed-content h1 {
+  margin-bottom: 20px;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #fff;
+}
+
+.hero-fullbleed-content h1 span {
+  color: var(--red);
+}
+
+.hero-motto {
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
 .nav {
   width: min(1180px, calc(100% - 32px));
   min-height: 76px;
@@ -1540,6 +1628,11 @@ h2 {
 
   .nav-links {
     justify-content: flex-start;
+  }
+
+  .hero-fullbleed-content {
+    margin-left: 16px;
+    padding: 120px 0 60px;
   }
 
   .hero {
