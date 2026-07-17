@@ -1748,12 +1748,16 @@ h2 {
   }
 
   .nav-links {
-    gap: 2px;
+    gap: 0;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
   }
 
   .nav-links a {
-    padding: 8px 10px;
-    font-size: 0.84rem;
+    padding: 6px 7px;
+    font-size: 0.72rem;
+    white-space: nowrap;
   }
 
   h1 {
