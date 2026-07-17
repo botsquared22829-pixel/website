@@ -110,7 +110,7 @@ p {
 .hero-fullbleed-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.62);
 }
 
 .hero-fullbleed-content {
@@ -717,9 +717,14 @@ h2 {
   padding: 16px;
 }
 
+.ftc-collab-frame {
+  background: #1a0508;
+}
+
 .ftc-collab-frame img {
-  aspect-ratio: 24 / 10;
-  object-position: center 41%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  object-position: center;
   transform: none;
 }
 
@@ -729,6 +734,8 @@ h2 {
 
 .robot-photo {
   display: grid;
+  overflow: hidden;
+  border-radius: var(--radius);
 }
 
 .robot-photo img {
@@ -741,6 +748,11 @@ h2 {
     #050608;
   background-size: 28px 28px;
   object-fit: contain;
+  transition: transform 500ms ease;
+}
+
+.robot-photo:hover img {
+  transform: scale(1.04);
 }
 
 .media-frame figcaption,
