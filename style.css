@@ -1210,40 +1210,122 @@ h2 {
   text-align: center;
 }
 
-/* ---- Award Cards ---- */
+/* ---- Award Showcase & Entries ---- */
 
-.award-grid {
+.award-showcase {
+  margin: 0 0 48px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.award-showcase img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 420px;
+}
+
+.award-entries {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 14px;
+  gap: 56px;
 }
 
-.award-card {
-  display: flex;
+.award-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 32px;
   align-items: center;
-  gap: 16px;
-  padding: 20px 22px;
 }
 
-.award-icon {
-  flex: 0 0 auto;
-  font-size: 1.8rem;
-  line-height: 1;
+.award-entry.reverse {
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
 }
 
-.award-card strong {
+.award-entry.reverse .award-entry-img {
+  order: 2;
+}
+
+.award-entry.reverse .award-entry-info {
+  order: 1;
+}
+
+.award-entry-img {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.award-entry-img img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.award-entry-info h3 {
+  margin-bottom: 12px;
+  color: var(--text);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.award-entry-info p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.award-entry-event {
+  display: block;
+  margin-bottom: 10px;
+  color: #ff6870;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.award-extras {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.award-extras h3 {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.award-extras-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.award-extras-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.award-extras-list strong {
   display: block;
   color: var(--text);
-  font-size: 0.9rem;
   font-weight: 850;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
 
-.award-card span {
+.award-extras-list span {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
 }
 
 /* ---- Robot Showcase ---- */
@@ -1555,12 +1637,16 @@ h2 {
   }
 
   .robot-entry,
-  .robot-entry.reverse {
+  .robot-entry.reverse,
+  .award-entry,
+  .award-entry.reverse {
     grid-template-columns: 1fr;
   }
 
   .robot-entry.reverse .robot-entry-img,
-  .robot-entry.reverse .robot-entry-info {
+  .robot-entry.reverse .robot-entry-info,
+  .award-entry.reverse .award-entry-img,
+  .award-entry.reverse .award-entry-info {
     order: unset;
   }
 
