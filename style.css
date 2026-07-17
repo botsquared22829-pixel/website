@@ -718,12 +718,13 @@ h2 {
 }
 
 .ftc-collab-frame img {
+  aspect-ratio: 24 / 10;
   object-position: center 41%;
-  transform: scale(1.6);
+  transform: none;
 }
 
 .ftc-collab-frame:hover img {
-  transform: scale(1.65);
+  transform: scale(1.03);
 }
 
 .robot-photo {
