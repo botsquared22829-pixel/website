@@ -709,6 +709,14 @@ h2 {
   object-fit: cover;
 }
 
+.media-frame--contain img {
+  aspect-ratio: auto;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000;
+  padding: 16px;
+}
+
 .robot-photo {
   display: grid;
 }
