@@ -77,14 +77,94 @@ p {
   backdrop-filter: blur(18px);
 }
 
+.site-header--home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  border-bottom: none;
+  background: rgba(7, 8, 10, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.hero-fullbleed {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-fullbleed-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-fullbleed-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-fullbleed-content {
+  position: relative;
+  z-index: 2;
+  width: min(800px, calc(100% - 48px));
+  padding: 140px 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-fullbleed-content .eyebrow {
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-fullbleed-content h1 {
+  margin-bottom: 20px;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #fff;
+}
+
+.hero-fullbleed-content h1 span {
+  color: var(--red);
+}
+
+.hero-motto {
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
 .nav {
   width: min(1180px, calc(100% - 32px));
   min-height: 76px;
   margin: 0 auto;
+  padding: 16px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 28px;
+  justify-content: center;
+  gap: 16px;
 }
 
 .brand {
@@ -147,8 +227,8 @@ p {
 .nav-links {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex: 1 1 auto;
+  justify-content: center;
+  flex: 0 0 auto;
   gap: 2px;
   flex-wrap: wrap;
 }
@@ -225,11 +305,8 @@ p {
 .eyebrow {
   width: fit-content;
   margin: 0 0 18px;
-  padding: 7px 10px;
-  border: 1px solid rgba(229, 9, 20, 0.48);
-  border-radius: 999px;
+  padding: 0;
   color: #ff6870;
-  background: rgba(229, 9, 20, 0.09);
   font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0.16em;
@@ -511,31 +588,15 @@ h2 {
 .sponsor-logo,
 .media-frame,
 .media-card {
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+  transition: transform 220ms ease;
 }
 
 .card {
   position: relative;
   min-height: 100%;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 38%),
-    var(--panel);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
-  overflow: hidden;
-}
-
-.card::before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  content: "";
-  background: linear-gradient(var(--red), transparent);
-  opacity: 0.78;
+  padding: 0;
+  border: none;
+  background: transparent;
 }
 
 .card:hover,
@@ -544,8 +605,6 @@ h2 {
 .media-card:hover,
 .sponsor-logo:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.24);
 }
 
 .card h3 {
@@ -725,12 +784,6 @@ h2 {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 14px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(160deg, rgba(229, 9, 20, 0.13), transparent 42%),
-    #0d1015;
 }
 
 .member-photo {
@@ -1020,26 +1073,14 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  width: 240px;
-  height: 200px;
-  padding: 28px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
-    rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
-  text-decoration: none;
-  transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
+  gap: 16px;
+  width: 100%;
+  max-width: 280px;
+  min-height: 140px;
 }
 
 .sponsor-card-lg:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(229, 9, 20, 0.35);
-  box-shadow:
-    0 0 40px rgba(229, 9, 20, 0.1),
-    0 24px 48px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
 }
 
 .sponsor-card-lg img {
@@ -1183,19 +1224,6 @@ h2 {
   align-items: center;
   gap: 16px;
   padding: 20px 22px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(145deg, rgba(255, 203, 102, 0.05), transparent 40%),
-    var(--panel);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-}
-
-.award-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 203, 102, 0.3);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 203, 102, 0.08);
 }
 
 .award-icon {
@@ -1267,12 +1295,8 @@ h2 {
 .robot-entry-badge {
   display: inline-block;
   width: fit-content;
-  padding: 5px 14px;
   margin-bottom: 14px;
-  border: 1px solid rgba(229, 9, 20, 0.48);
-  border-radius: 999px;
   color: #ff6870;
-  background: rgba(229, 9, 20, 0.09);
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.14em;
@@ -1297,12 +1321,8 @@ h2 {
 
 .outreach-tag {
   display: inline-block;
-  padding: 5px 14px;
   margin-bottom: 10px;
-  border: 1px solid rgba(87, 215, 255, 0.4);
-  border-radius: 999px;
   color: var(--cyan);
-  background: rgba(87, 215, 255, 0.08);
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.14em;
@@ -1335,7 +1355,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 36px 28px 32px;
+  padding: 36px 0;
   cursor: default;
 }
 
@@ -1345,8 +1365,6 @@ h2 {
 
 .tier-badge {
   display: inline-block;
-  padding: 6px 18px;
-  border-radius: 999px;
   font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0.14em;
@@ -1355,21 +1373,15 @@ h2 {
 }
 
 .tier-bronze .tier-badge {
-  border: 1px solid rgba(205, 127, 50, 0.5);
   color: #e8a44a;
-  background: rgba(205, 127, 50, 0.1);
 }
 
 .tier-silver .tier-badge {
-  border: 1px solid rgba(192, 197, 206, 0.5);
   color: #d0d5de;
-  background: rgba(192, 197, 206, 0.1);
 }
 
 .tier-gold .tier-badge {
-  border: 1px solid rgba(255, 200, 55, 0.5);
   color: #ffd557;
-  background: rgba(255, 200, 55, 0.1);
 }
 
 .tier-price {
@@ -1404,50 +1416,18 @@ h2 {
   line-height: 1.5;
 }
 
-/* Tier-specific left accent bars */
-.tier-bronze {
-  border-top: 2px solid rgba(205, 127, 50, 0.6);
-}
-
-.tier-silver {
-  border-top: 2px solid rgba(192, 197, 206, 0.6);
-}
-
-.tier-gold {
-  border-top: 2px solid rgba(255, 200, 55, 0.6);
-}
-
-/* Hover effects: lift + tier-colored outer glow */
+/* Hover effects: lift */
 .tier-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .tier-bronze:hover {
-  border-color: rgba(205, 127, 50, 0.45);
-  border-top-color: rgba(205, 127, 50, 0.8);
-  box-shadow:
-    0 0 28px rgba(205, 127, 50, 0.2),
-    0 0 68px rgba(205, 127, 50, 0.1),
-    0 24px 54px rgba(0, 0, 0, 0.3);
 }
 
 .tier-silver:hover {
-  border-color: rgba(192, 197, 206, 0.45);
-  border-top-color: rgba(192, 197, 206, 0.8);
-  box-shadow:
-    0 0 28px rgba(192, 197, 206, 0.22),
-    0 0 68px rgba(192, 197, 206, 0.1),
-    0 24px 54px rgba(0, 0, 0, 0.3);
 }
 
 .tier-gold:hover {
-  border-color: rgba(255, 200, 55, 0.45);
-  border-top-color: rgba(255, 200, 55, 0.8);
-  box-shadow:
-    0 0 28px rgba(255, 200, 55, 0.25),
-    0 0 68px rgba(255, 200, 55, 0.12),
-    0 24px 54px rgba(0, 0, 0, 0.3);
 }
 
 .reveal {
